@@ -61,6 +61,8 @@ export default function BreweryProcess() {
             layout="fill"
             objectFit="contain"
             className="opacity-50"
+            loading="eager"
+            priority
           />
         </div>
 
@@ -88,6 +90,8 @@ export default function BreweryProcess() {
             width={400}
             height={400}
             className="object-contain"
+            priority
+            loading="eager"
           />
         </div>
 

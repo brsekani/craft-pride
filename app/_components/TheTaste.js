@@ -26,6 +26,9 @@ export default function TheTaste() {
             className="rounded-tl-[40%] shadow-lg object-cover"
             fill
             sizes="(max-width: 768px) 50vw, 25vw"
+            priority
+            placeholder="blur"
+            // loading="lazy"
           />
         </div>
         <div className="flex-1 relative h-64 md:h-full">

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import image1 from "@/public/craftPrideslider3.jpg";
 import BreweryCard from "./BreweryCard";
 

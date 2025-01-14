@@ -27,6 +27,9 @@ export default function Hero() {
             layout="fill"
             objectFit="cover"
             className="w-full h-full"
+            priority // Ensures the image is preloaded for better performance
+            loading="eager" // Loads the image immediately
+            placeholder="blur"
           />
         </div>
 

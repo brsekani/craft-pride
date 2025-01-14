@@ -81,6 +81,8 @@ export default function Offers() {
                     src={beerbottle}
                     alt={`${beer.title} Bottle`}
                     className="w-[160px] h-[300px] object-contain"
+                    placeholder="blur"
+                    loading="lazy"
                   />
                 </div>
 

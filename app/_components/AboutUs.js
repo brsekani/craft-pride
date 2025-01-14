@@ -42,6 +42,9 @@ export default function AboutUs() {
             width={500}
             height={300}
             className="object-cover w-full h-full"
+            priority
+            loading="eager"
+            placeholder="blur"
           />
         </div>
         <div className="w-full h-full relative rounded-tl-[30%] rounded-br-[30%] overflow-hidden">

@@ -11,6 +11,9 @@ const BreweryCard = ({ imageSrc, title, description }) => {
           src={imageSrc}
           alt={title}
           layout="fill"
+          priority
+          placeholder="blur"
+          // loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
       </div>

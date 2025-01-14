@@ -1,4 +1,6 @@
-import Marquee from "react-fast-marquee";
+"use client";
+
+// import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import img1 from "@/public/aboutUs1.jpg";
 import img2 from "@/public/aboutUs2.jpg";
@@ -8,6 +10,9 @@ import craftPrideslider3 from "@/public/craftPrideslider3.jpg";
 import craftPrideslider4 from "@/public/craftPrideslider4.jpg";
 import craftPrideslider5 from "@/public/craftPrideslider5.jpg";
 import craftPrideslider6 from "@/public/craftPrideslider6.jpg";
+import dynamic from "next/dynamic";
+
+const Marquee = dynamic(() => import("react-fast-marquee"), { ssr: false });
 
 const images = [
   craftPrideslider1,
@@ -39,7 +44,7 @@ export default function InfiniteScrollGallery() {
         ))}
       </Marquee>
 
-      <Marquee speed={50} direction="right" gradient={false}>
+      <Marquee speed={50} direction="right" gradientWidth={100}>
         {images.map((image, index) => (
           <div key={index} className="w-full sm:h-[300px] h-[150px] ">
             <Image

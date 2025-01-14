@@ -63,6 +63,9 @@ export default function ContactUs() {
           src={image1}
           alt="Contact Us"
           className="w-full h-auto md:rounded-tl-[30%] md:rounded-br-[30%] object-cover"
+          priority
+          placeholder="blur"
+          // loading="lazy"
         />
       </div>
     </section>
