@@ -1,6 +1,9 @@
+"use client";
+
 import { LuHop } from "react-icons/lu";
 import Image from "next/image";
 import beerbottle2 from "@/public/rb_1743.png";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 const breweryData = [
   {
@@ -69,45 +72,57 @@ export default function BreweryProcess() {
         {/* First Column - 3 items */}
         <div className="flex flex-col md:gap-16 gap-6 w-full md:w-1/3 z-10">
           {breweryData.slice(0, 3).map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className="flex flex-row items-center gap-4 max-w-full"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <div className="text-end">
                 <h6 className="font-semibold text-lg">{item.name}</h6>
                 <p className="text-sm md:text-base">{item.content}</p>
               </div>
               <item.Icon size={80} color="#E1A32E" />
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Center Image for Larger Screens */}
         <div className="hidden md:flex w-full md:w-1/3 justify-center items-center z-10">
-          <Image
-            src={beerbottle2}
-            alt="Beer Bottle"
-            width={400}
-            height={400}
-            className="object-contain"
-            priority
-            loading="eager"
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Image
+              src={beerbottle2}
+              alt="Beer Bottle"
+              width={400}
+              height={400}
+              className="object-contain"
+              priority
+              loading="eager"
+            />
+          </motion.div>
         </div>
 
         {/* Second Column - 3 items */}
         <div className="flex flex-col md:gap-16 gap-6 w-full md:w-1/3 z-10">
           {breweryData.slice(3).map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className="flex flex-row items-center gap-4 max-w-full"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <item.Icon size={80} color="#E1A32E" />
               <div className="text-start">
                 <h6 className="font-semibold text-lg">{item.name}</h6>
                 <p className="text-sm md:text-base">{item.content}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

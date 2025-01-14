@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import image1 from "@/public/craftPrideslider3.jpg";
 import BreweryCard from "./BreweryCard";
 
@@ -34,7 +36,12 @@ export default function NewsAndEvents() {
       id="news"
       className="w-full text-[rgb(2,5,4)] px-6 flex flex-col gap-4  max-w-[1400px] mx-auto"
     >
-      <div className="flex items-center justify-between w-full">
+      <motion.div
+        className="flex items-center justify-between w-full"
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+      >
         <div className="flex sm:gap-4 gap-1 flex-col">
           <p className="text-base md:text-lg text-[#E1A32E]">Be our guest</p>
           <h1 className="text-xl sm:text-4xl md:text-5xl font-bold leading-tight text-center md:text-left uppercase">
@@ -46,18 +53,29 @@ export default function NewsAndEvents() {
             Explore
           </div>
         </button>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      >
         {breweryData.map((brewery, index) => (
-          <BreweryCard
+          <motion.div
             key={index}
-            imageSrc={brewery.imageSrc}
-            title={brewery.title}
-            description={brewery.description}
-          />
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <BreweryCard
+              imageSrc={brewery.imageSrc}
+              title={brewery.title}
+              description={brewery.description}
+            />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

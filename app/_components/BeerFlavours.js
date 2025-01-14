@@ -1,3 +1,7 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+
 export default function BeerFlavours() {
   const BeerFlavours = [
     {
@@ -80,9 +84,12 @@ export default function BeerFlavours() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {BeerFlavours.map((beer, index) => (
-          <div
+          <motion.div
             key={index}
-            className="p-4  cursor-pointer  rounded-lg shadow-md hover:shadow-lg transition duration-300"
+            className="p-4 cursor-pointer rounded-lg shadow-md hover:shadow-lg transition duration-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
           >
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-xl font-bold text-[#E1A32E]">{beer.title}</h2>
@@ -92,7 +99,7 @@ export default function BeerFlavours() {
             </div>
             <hr className="border-t-2 border-yellow-500 mb-3" />
             <p className="text-sm text-gray-600">{beer.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

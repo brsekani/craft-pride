@@ -14,6 +14,11 @@ import ContactUs from "./_components/ContactUs";
 import Footer from "./_components/Footer";
 
 export default function Home() {
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <div className="font-[family-name:var(--font-geist-sans)] flex flex-col items-center justify-center md:gap-20 gap-10">
       <Hero />

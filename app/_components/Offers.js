@@ -6,6 +6,7 @@ import { CiHeart } from "react-icons/ci";
 import { TbShoppingCart } from "react-icons/tb";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import useEmblaCarousel from "embla-carousel-react";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 export default function Offers() {
   const beers = [
@@ -68,12 +69,21 @@ export default function Offers() {
 
       <div className="relative p-4 sm:p-6">
         {/* Carousel */}
-        <div className="overflow-hidden" ref={emblaRef}>
+        <motion.div
+          className="overflow-hidden"
+          ref={emblaRef}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <div className="flex gap-6 h-[205px] mt-5">
             {beers.map((beer, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="relative flex-shrink-0 max-w-[400px] w-full h-[180px] rounded-tr-[30%] rounded-bl-[30%] bg-white shadow-lg"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
               >
                 {/* Beer Bottle Image */}
                 <div className="absolute -top-14 -left-8">
@@ -105,44 +115,47 @@ export default function Offers() {
                     </p>
                     <div className="flex gap-2">
                       {/* Like Button */}
-                      <button
+                      <motion.button
                         aria-label="Add to favorites"
                         className="w-10 h-10 border border-gray-300 rounded-md flex items-center justify-center hover:border-gray-500 hover:shadow-md transition duration-300"
+                        whileHover={{ scale: 1.1 }}
                       >
                         <CiHeart className="h-6 w-6 text-[#E1A32E] hover:text-gray-900" />
-                      </button>
+                      </motion.button>
 
                       {/* Add to Cart Button */}
-                      <button
+                      <motion.button
                         aria-label="Add to cart"
                         className="w-10 h-10 border border-gray-300 rounded-md flex items-center justify-center hover:border-gray-500 hover:shadow-md transition duration-300"
+                        whileHover={{ scale: 1.1 }}
                       >
                         <TbShoppingCart className="h-6 w-6 text-[#E1A32E] hover:text-gray-900" />
-                      </button>
+                      </motion.button>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Pagination */}
         {/* Pagination with Navigation Buttons */}
         <div className="flex items-center justify-center mt-6 sm:gap-10 gap-6">
           {/* Left Button */}
-          <button
+          <motion.button
             onClick={() => emblaApi?.scrollPrev()}
             className=" text-white p-2 transition"
             aria-label="Previous Slide"
+            whileHover={{ scale: 1.2 }}
           >
             <FaChevronLeft color="#E1A32E" />
-          </button>
+          </motion.button>
 
           {/* Pagination */}
           <div className="flex justify-center space-x-2">
             {beers.map((_, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => scrollTo(index)}
                 className={`w-3 h-3 rounded-full ${
@@ -151,18 +164,20 @@ export default function Offers() {
                     : "bg-gray-300 hover:bg-gray-500"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
+                whileHover={{ scale: 1.2 }}
               />
             ))}
           </div>
 
           {/* Right Button */}
-          <button
+          <motion.button
             onClick={() => emblaApi?.scrollNext()}
-            className="  text-white p-2  transition"
+            className="text-white p-2 transition"
             aria-label="Next Slide"
+            whileHover={{ scale: 1.2 }}
           >
             <FaChevronRight color="#E1A32E" />
-          </button>
+          </motion.button>
         </div>
       </div>
     </section>

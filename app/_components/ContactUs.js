@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import image1 from "@/public/craftPrideslider4.jpg";
 import { FaRegClock } from "react-icons/fa";
@@ -12,7 +14,12 @@ export default function ContactUs() {
       className="w-full text-[#020504] px-4 md:px-6 flex flex-col md:flex-row items-center md:items-start max-w-[1400px] mx-auto py-10"
     >
       {/* Left Section */}
-      <div className="md:w-1/2 w-full space-y-6">
+      <motion.div
+        className="md:w-1/2 w-full space-y-6"
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+      >
         <div>
           <p className="text-lg text-[#E1A32E]">All you need is a beer</p>
           <h1 className="text-4xl font-bold uppercase mt-2">Contact us</h1>
@@ -46,28 +53,38 @@ export default function ContactUs() {
             Contact Us
           </div>
         </button>
-      </div>
+      </motion.div>
 
       {/* Right Section */}
-      <div className="relative md:w-1/2 w-full mt-6 md:mt-0">
+      <motion.div
+        className="relative md:w-1/2 w-full mt-6 md:mt-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      >
         {/* Beer Icons */}
-        <GiHops
-          size={100}
-          className="absolute hidden md:block top-4 left-4 text-[#BE881D] animate-bounce opacity-70"
-        />
-        <GiHops
-          size={100}
-          className="absolute hidden md:block bottom-4 right-0 text-[#BE881D] animate-bounce opacity-70"
-        />
+        <motion.div
+          className="absolute hidden md:block top-4 left-4"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+          <GiHops size={100} className="text-[#BE881D] opacity-70" />
+        </motion.div>
+        <motion.div
+          className="absolute hidden md:block bottom-4 right-0"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+          <GiHops size={100} className="text-[#BE881D] opacity-70" />
+        </motion.div>
         <Image
           src={image1}
           alt="Contact Us"
           className="w-full h-auto md:rounded-tl-[30%] md:rounded-br-[30%] object-cover"
           priority
           placeholder="blur"
-          // loading="lazy"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }
