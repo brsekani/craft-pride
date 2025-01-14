@@ -16,7 +16,7 @@ const quotes = [
   },
   {
     text: "Without question, the greatest invention in the history of mankind is beer. Oh, I grant you that the wheel was also a fine invention, but the wheel does not go nearly as well with pizza.",
-    author: "Dave Barry ",
+    author: "Dave Barry",
   },
   {
     text: "Beer brings people together in a way that no other beverage can. It is the social glue of our gatherings, the celebratory drink of life’s milestones, and a symbol of our shared humanity. When we brew, we connect to an ancient tradition; when we drink, we celebrate the moment.",
